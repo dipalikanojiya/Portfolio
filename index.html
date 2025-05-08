@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio website of Dipali Kanojiya, an aspiring Front-End Developer." />
+  <title>Dipali Kanojiya | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a65, #4f46e5);
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
+  }
+    #Photo img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  float: left;
+  }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #ff4081;
+    }
+
+    .menu-toggle,
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .menu-toggle {
+      left: 20px;
+      display: none;
+    }
+
+    .dark-toggle {
+      right: 20px;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #1a1a65;
+      margin-bottom: 1rem;
+      text-decoration: underline;
+      text-decoration-color: #741b47;
+    }
+
+    .skills,
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .skill,
+    .project {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      flex: 1 1 220px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .skill:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ffd6a5, #ff9a9e);
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    }
+
+    footer {
+      background: #1a1a65;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    a {
+      color: #4f46e5;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .sem-box {
+      position: relative;
+      width: 100px;
+      height: 60px;
+      background-color: #fff;
+      color: black;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sem-box:hover {
+      background-color: #b3daff;
+      border: 1px solid brown;
+      color: white;
+    }
+
+    .sem-box .cgpa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .sem-box:hover .cgpa {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        background: #1a1a65;
+        padding: 1rem;
+        border-radius: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #151551;
+    }
+
+    body.dark-mode .skill,
+    body.dark-mode .project,
+    body.dark-mode .sem-box {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    body.dark-mode .skill:hover {
+      color: black;
+    }
+
+    body.dark-mode .project :hover {
+      color: black;
+    }
+
+    body.dark-mode .sem-box:hover {
+      background-color: #1e1e1e;
+      color: black;
+    }
+
+    body.dark-mode .sem-box .cgpa:hover {
+      color: white;
+    }
+
+    body.dark-mode h2 {
+      color: lightpink;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      display: none;
+      cursor: pointer;
+    }
+
+    .scroll-to-top.show {
+      display: block;
+    }
+
+    h1:hover {
+      color: peachpuff;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+    <div id="Photo">
+      <img src="image/image.jpg" alt="My Photo">
+    </div>
+    <h1>Dipali Kanojiya</h1>
+    <p><i><u>Aspiring Front-End Developer</u></i></p>
+    <nav id="navMenu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Hi! I'm Dipali Kanojiya, a BCA student at KES Shroff College. I’m passionate about web development and love bringing creative ideas to life on screen. I’m a fast learner and enjoy solving problems with both logic and creativity.</p>
+  </section>
+
+  <section id="academic" data-aos="fade-up">
+    <h2>Academic Grade:</h2>
+    <div class="container">
+      <div class="sem-box">Sem 1 <div class="cgpa">8.91</div></div>
+      <div class="sem-box">Sem 2 <div class="cgpa">8.73</div></div>
+      <div class="sem-box">Sem 3 <div class="cgpa">9.00</div></div>
+      <div class="sem-box">Sem 4 <div class="cgpa">9.50</div></div>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="zoom-in">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><i class="fab fa-html5"></i> HTML</div>
+      <div class="skill"><i class="fab fa-css3-alt"></i> CSS</div>
+      <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
+      <div class="skill"><i class="fab fa-java"></i> Java</div>
+      <div class="skill">Advanced Java</div>
+      <div class="skill">C</div>
+      <div class="skill">C++</div>
+      <div class="skill">C#</div>
+      <div class="skill">ASP.NET</div>
+      <div class="skill"><i class="fab fa-python"></i> Python</div>
+      <div class="skill">MySQL</div>
+      <div class="skill"><i class="fab fa-php"></i> PHP</div>
+      <div class="skill">JQuery</div>
+      <div class="skill">Angular JS</div>
+      <div class="skill">Digital Marketing</div>
+      <div class="skill">MS Office</div>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-right">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>This very site! A simple, responsive personal portfolio built using HTML and CSS.</p>
+      </div>
+      <div class="project">
+        <h3>[Future Project]</h3>
+        <p>Coming soon: Java-based Expense Tracker App.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" data-aos="fade-left">
+    <h2>Experience</h2>
+    <p><strong>Admin Role</strong> – Provided student counselling, maintained academic records, and coordinated between departments. Managed appointments and helped organize workshops for student development.</p><br>
+    <p><strong>Programming Faculty</strong> - Guided students through foundational and advanced topics including HTML, CSS, JavaScript, Python, C, and C++, while also training them in MS Office and introductory AI tools to build all-round digital fluency.</p><br>
+    <p><strong>Dhanamal English High School</strong> - Currently working as an IT Faculty, teaching computer fundamentals to primary students and programming concepts to secondary students—fostering digital literacy and problem-solving from an early age.</p>
+  </section>
+
+  <section id="contact" data-aos="zoom-in-up">
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:deepalikanojiya22@gmail.com">deepalikanojiya22@gmail.com</a></p>
+    <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/dipali-kanojiya" target="_blank">linkedin.com/in/Dipali Kanojiya</a></p>
+    <p>📱 Call Me: <a href="tel:+919321763225" style="color:green;"><strong>+91 93217 63225</strong></a></p>
+    <p>💬 WhatsApp: <a href="https://wa.me/919321763225" target="_blank" style="color:#25D366;">Chat on WhatsApp</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Dipali Kanojiya</p>
+  </footer>
+
+  <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      nav.classList.toggle("show");
+    }
+
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle("dark-mode");
+      const toggle = document.querySelector(".dark-toggle");
+      toggle.textContent = body.classList.contains("dark-mode") ? '☀️' : '🌙';
+    }
+
+    window.onscroll = function () {
+      const scrollToTopButton = document.getElementById("scrollToTop");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollToTopButton.classList.add("show");
+      } else {
+        scrollToTopButton.classList.remove("show");
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+
+</html>
